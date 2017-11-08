@@ -10,8 +10,3 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/app.js"></script>
 </head>
-<body>
-    <h1>Hello World</h1>
-    
-</body>
-</html>
