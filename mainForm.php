@@ -131,53 +131,62 @@
 		<h2>Instructions: Please provide an explanation/justification for each line item for which funding is requested. [NOTE: All items are not required.] </h2>
 		<p> 
 			Resource Materials:
-			<input type="text" name="material_amount ">
-			Explanation of Amount
-			<textarea name="summary" rows="6" cols="70">
+			<input type="text" name="material_amount" placeholder="$">
+			Explanation of Amount:
+			<textarea name="material_explanation" rows="6" cols="70">
 					Enter your text here. 
 			</textarea> 
 		</p>
 		<p>
 			Educational Supplies: 
-			<input type="text" name="supplies_amount">
-			Explanation of Amount
-			<textarea name="summary" rows="6" cols="70">
+			<input type="text" name="supplies_amount" placeholder="$">
+			Explanation of Amount:
+			<textarea name="supplies_explanation" rows="6" cols="70">
 					Enter your text here. 
 			</textarea> 
 		</p>
 		<p>
 			Student Support: 
-			<input type="text" name="studentSupport_amount">
-			Explanation of Amount
-			<textarea name="summary" rows="6" cols="70">
+			<input type="text" name="studentSupport_amount" placeholder="$">
+			Explanation of Amount:
+			<textarea name="studentSupport_explanation" rows="6" cols="70">
 					Enter your text here. 
 			</textarea> 
 		</p>
 		<p>
 			Staff Support:
-			<input type="text" name="staffSupport_amount">
-			Explanation of Amount
-			<textarea name="summary" rows="6" cols="70">
+			<input type="text" name="staffSupport_amount" placeholder="$">
+			Explanation of Amount:
+			<textarea name="staffSupport_explanation" rows="6" cols="70">
 					Enter your text here. 
 			</textarea> 
 		</p>
 		<p>
 			Community Member Support:
-			<input type="text" name="communitySupport_amount">
-			Explanation of Amount
-			<textarea name="summary" rows="6" cols="70">
+			<input type="text" name="communitySupport_amount" placeholder="$">
+			Explanation of Amount:
+			<textarea name="communitySupport_explanation" rows="6" cols="70">
 					Enter your text here. 
 			</textarea> 
 		</p>
 		<p>
 			Other: 
-			<input type="text" name="other_amount">
-			Explanation of Amount
-			<textarea name="summary" rows="6" cols="70">
+			<input type="text" name="other_amount" placeholder="$">
+			Explanation of Amount:
+			<textarea name="other_explanation" rows="6" cols="70">
+					Enter your text here. 
+			</textarea> 
+		</p>
+		<p>
+			Total Amount: 
+			<input type="text" name="other_amount" placeholder="$">
+			Other Comments or Additional Justification: 
+			<textarea name="other_comments" rows="6" cols="70">
 					Enter your text here. 
 			</textarea> 
 		</p>
 		
+	
 <!-- Final Submit Button  -->
 		
 		<h1>If you are finished with your proposal please press submit. </h1>
