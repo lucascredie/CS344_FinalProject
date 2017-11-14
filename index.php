@@ -3,10 +3,13 @@
 <!-- This is the page before the form starts -->
 <body>
 
+<?php include "nav.php"; ?>
+
 <div class="container">
-    <header class="text-center">
-        <h1>WSU Student Green Fee</h1>
-        <h4>Grant Application</h4>
+    <header>
+        <h2 id="title">WSU Student Green Fee</h2>
+        <hr id="titleHR">
+        <h4 id="subtitle">Grant Application</h4>
     </header>
 
     <p>
@@ -33,7 +36,7 @@
     Contact:
     </p>
 
-    <ul>
+    <ul id="contact">
         <li>Nathan Engstrom</li>
         <li>Sustainability Director</li>
         <li>(507) 457-2395</li>
@@ -46,10 +49,10 @@
         via email to NEngstrom@winona.edu.
     </p>
 
-    <h5 class="text-center">You may save and continue working on the application at a later date, for up to ONE MONTH.</h5>
+    <h5 id="note">You may save and continue working on the application at a later date, for up to ONE MONTH.</h5>
 
-    <div class="text-center">
-        <button class="btn btn-outline-success btn-lg"> <a href="userTypeForm.php">Start</a> </button>
+    <div >
+        <a class="Button" href="userTypeForm.php">Start</a>
     </div>
 
 </div>
