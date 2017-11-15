@@ -170,7 +170,7 @@ p {
     border: 1px solid rgba(129, 129, 129, 0.15);
     transition: 300ms;
     color: rgb(81, 81, 81);
-    padding: 13px;
+    /* padding: 13px; */
 }
 .textInput:focus {
     outline: none;
