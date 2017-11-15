@@ -3,6 +3,7 @@
 <!-- This is the page where the form is if the student is in group --> 
 
 <body>
+	
 	<form action ="" method="post" enctype="multipart/form-data">
 		<p> 
 			Name of Group (student org, campus dept, etc.): 
