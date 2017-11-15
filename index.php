@@ -8,7 +8,7 @@
 <div class="container">
     <header>
         <h2 id="title">WSU Student Green Fee</h2>
-        <hr id="titleHR">
+        <hr class="titleHR">
         <h4 id="subtitle">Grant Application</h4>
     </header>
 
