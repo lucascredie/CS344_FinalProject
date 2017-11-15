@@ -6,10 +6,10 @@
 
 	
 
-    <div id="statusForm" class="form">
+<div id="statusForm" class="form animated zoomIn">
 
-	<h1 id="formTitle">Who Are You</h1>
-	<hr id="titleHR">
+	<h1 class="formTitle">What is Your Status?</h1>
+	<hr class="titleHR">
 
 	<div class="inputs">
 			
@@ -55,23 +55,21 @@
             		<label>Group Project</label>
         		</div>
 			</div>
-		</div>
+		</div> <!-- student box for group -->
 
-		</div> <!-- status form -->
+</div> <!-- status form -->
 
-		<!-- </p> -->
 		<div class="buttonBox">
-		<button id="statusButtonSubmit" class="Button">Next</button>
+			<button id="statusButtonSubmit" class="Button">Next</button>
 		</div>
+</div> <!-- status form -->
 
-	</div> <!-- status form -->
 
-	<!-- Student info -->
+<!-- Student info -->
+<div id="studentForm" class="form animated zoomIn">
 
-	<div id="studentForm" class="form">
-
-		<h1 id="formTitle">Information</h1>
-		<hr id="titleHR">
+		<h1 class="formTitle">Information</h1>
+		<hr class="titleHR">
 
 		<div class="inputs">
 
@@ -103,12 +101,47 @@
 		</div>
 
 		<div class="buttonBox">
-		<button id="studentButtonBack" class="Button backButton">Back</button>
-		<button id="studentButtonNext" class="Button">Next</button>
+			<button id="studentButtonBack" class="Button backButton">Back</button>
+			<button id="studentButtonNext" class="Button">Next</button>
 		</div>
 
+</div>
+
+	<!-- 1st Section of the Main Form (Contact Details) -->
+
+<div id="contactForm" class="form hide">
+		<h1 class="formTitle"> Contact Details </h1>
+		<hr class="formHR">
+
+	<div class="inputs">
+
+		<label class="label">
+		Project Title:
+		</label>
+		<input class="textInput" type="text" name="projectTitle">
+
+		<label class="label">
+		Name and Title of Primary Contact:
+		</label>
+		<input class="textInput" type="text" name="contactName">
+
+		<label class="label">
+		Primary Contact Email
+		</label>
+		<input class="textInput" type="text" name="contactEmail">
+
+		<label class="label">
+		Campus Affiliation (Name of Organization, Department, or Office): 
+		</label>
+		<input class="textInput" type="text" name="afilliation">
+	
 	</div>
-	</div>
+
+		<div class="buttonBox">
+			<button id="contactButtonBack" class="Button backButton">Back</button>
+			<button id="contactButtonNext" class="Button">Next</button>
+		</div>
+</div>
 
 </body>
 

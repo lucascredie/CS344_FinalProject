@@ -19,7 +19,7 @@ $( document ).ready(function() {
             $("#studentBox").slideUp("fast"); //otherwise hide
         } }); 
 
-    /*  check for submit button clicked and move to next form */
+    /*  check for status submit button clicked and move to next form */
     $("#statusButtonSubmit").on("click",function(){
         let statusInput = $("input:radio[name=status]:checked").val();
         status = statusInput;
@@ -27,11 +27,17 @@ $( document ).ready(function() {
         if(statusInput == "student") {
             let groupInput = $("input:radio[name=group]:checked").val();
             group = groupInput;
+            
+            //hides group name if the person is alone
+            if(group == "alone") {
+                $(".groupNameInput").hide();
+            } else {
+                $(".groupNameInput").show();
+            }
+           
+            $("#statusForm").hide();
 
-            // console.log("dasdas");
-            $("#statusForm").slideUp();
-
-            $("#studentForm").slideDown();
+            $("#studentForm").show();
 
         } else {
             group = null; //can be something else too
@@ -44,11 +50,14 @@ $( document ).ready(function() {
     });
 
     $("#studentButtonBack").on("click", function(){
-        // console.log("baaack");
+        console.log("baaack");
 
-        $("#studentForm").slideUp();
-        $("#statusForm").slideDown();
+        $("#studentForm").hide();
+        // $('#statusForm').addClass('animated bounceOutLeft');
+        $("#statusForm").show();
     
     })
+
+    
 
 });
