@@ -4,8 +4,6 @@
 
 <body>
 
-	
-
 <div id="statusForm" class="form animated zoomIn">
 
 	<h1 class="formTitle">What is Your Status?</h1>
@@ -109,7 +107,7 @@
 
 	<!-- 1st Section of the Main Form (Contact Details) -->
 
-<div id="contactForm" class="form hide">
+<div id="contactForm" class="form hide animated zoomIn">
 		<h1 class="formTitle"> Contact Details </h1>
 		<hr class="formHR">
 

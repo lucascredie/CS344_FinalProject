@@ -35,28 +35,48 @@ $( document ).ready(function() {
                 $(".groupNameInput").show();
             }
            
-            $("#statusForm").hide();
+            move($("#statusForm"),$("#studentForm"));
 
-            $("#studentForm").show();
 
         } else {
-            group = null; //can be something else too
-            
+            group = null; //can be something else too  
+            move($("#statusForm"), $("#contactForm"));
         }
 
         console.log(status);
         console.log(group);
                 
     });
+    // from student information to contact
+    $("#studentButtonNext").on("click", function(){
+        console.log("baaack");
 
+        move($("#studentForm"), $("#contactForm"));
+    
+    })
+    //from student information to status
     $("#studentButtonBack").on("click", function(){
         console.log("baaack");
 
-        $("#studentForm").hide();
-        // $('#statusForm').addClass('animated bounceOutLeft');
-        $("#statusForm").show();
+        move($("#studentForm"), $("#statusForm"));
     
     })
+    //from contact back to status
+    $("#contactButtonBack").on("click", function(){
+        console.log("baaack");
+
+        move($("#contactForm"), $("#statusForm"));
+    
+    })
+
+
+
+    function move(currentForm, nextForm) {
+        currentForm.hide();
+        nextForm.show();
+    }
+
+   
 
     
 
