@@ -66,7 +66,7 @@
 <!-- Student info -->
 <div id="studentForm" class="form animated zoomIn">
 
-		<h1 class="formTitle">Information</h1>
+		<h1 class="formTitle">Student Information</h1>
 		<hr class="titleHR">
 
 		<div class="inputs">
@@ -156,7 +156,7 @@
 					<label class="label">
 					Please provide a summary of your project. 
 					</label>
-				<textarea name="summary" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="summary" rows="8" class="textArea textAreaCheck" placeholder="Enter summary"></textarea> 
 			</div>
 
 			<h3 class="questionTitle"><span class="completed fa fa-check"></span> 2. Student Input and Endorsement <span class="retractIcon fa fa-plus-circle"></span></h3>
@@ -165,7 +165,7 @@
 					How has your project sought student input and endorsement? This could include focus groups,
 					presentation to the SGA Student Sustainability Committee, student org endorsement, etc.
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="input_endorsement" rows="8" class="textArea textAreaCheck" placeholder="Enter summary"></textarea> 
 			</div>
 
 			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  3. Anticipated Outcomes/Impact <span class="retractIcon fa fa-plus-circle"></span></h3>
@@ -176,7 +176,7 @@
 					those benefits in terms of kilowatt-hours saved, tons of greenhouse gas emissions reduced, 
 					gallons of storm-water treated, etc.
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="input_endorsement" rows="8" class="textArea textAreaCheck" placeholder="Enter summary"></textarea> 
 			</div>
 
 			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  4. Project Benchmarking <span class="retractIcon fa fa-plus-circle"></span></h3>
@@ -185,7 +185,7 @@
 					Have similar projects been implemented on other campuses? Have they been successful?
 					How does this project differ? 
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="input_endorsement" rows="8" class="textArea textAreaCheck" placeholder="Enter summary"></textarea> 
 			</div>
 
 			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  5. Accountability <span class="retractIcon fa fa-plus-circle"></span></h3>
@@ -193,7 +193,7 @@
 					<label class="label">
 					How will you measure and evaluate your project’s progress and success?  
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="input_endorsement" rows="8" class="textArea textAreaCheck" placeholder="Enter summary"></textarea> 
 			</div>
 
 			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  6. Cost Savings <span class="retractIcon fa fa-plus-circle"></span></h3>
@@ -201,7 +201,7 @@
 					<label class="label">
 					Will the project result in expected cost savings? If yes, what is the payback period?
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="input_endorsement" rows="8" class="textArea textAreaCheck" placeholder="Enter summary"></textarea> 
 			</div>
 
 			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  7. Project Self Sufficiency <span class="retractIcon fa fa-plus-circle"></span></h3>
@@ -210,7 +210,7 @@
 					What is the total project budget? What is your plan for sustained funding? 
 					Is this project receiving funding from other sources? If so, please explain.
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="input_endorsement" rows="8" class="textArea textAreaCheck" placeholder="Enter summary"></textarea> 
 			</div>
 
 			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  8. Project Lifespan <span class="retractIcon fa fa-plus-circle"></span></h3>
@@ -219,7 +219,7 @@
 					What is the expected lifespan of the project? 
 					Who will be responsible for overseeing it during that time?
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="input_endorsement" rows="8" class="textArea textAreaCheck" placeholder="Enter summary"></textarea> 
 			</div>
 
 			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  9. Sustainability/Accountability <span class="retractIcon fa fa-plus-circle"></span></h3>
@@ -229,7 +229,7 @@
 					once you are no longer involved? If the project will conclude while you are involved, what will happen to the 
 					materials purchased for the project and how will you return the project site to its original condition? 
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="input_endorsement" rows="8" class="textArea textAreaCheck" placeholder="Enter summary"></textarea> 
 			</div>
 
 			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  10. Potential <span class="retractIcon fa fa-plus-circle"></span></h3>
@@ -237,7 +237,7 @@
 					<label class="label">
 					How can your project be scaled for broader campus application beyond the initial phase? 
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="input_endorsement" rows="8" class="textArea textAreaCheck" placeholder="Enter summary"></textarea> 
 			</div>
 
 		
@@ -245,6 +245,79 @@
 				<button id="proposalButtonBack" class="Button backButton">Back</button>
 				<button id="proposalButtonNext" class="Button">Next</button>
 			</div>
+</div>
+
+<!-- BUDGET -->
+
+<div id="budgetForm" class="form animated zoomIn hide">
+		
+		<h1 class="formTitle"> Budget Details </h1>
+		<hr class="titleHR">
+		<h5 class="instructions"> Instructions: Please provide an explanation/justification 
+			for each line item for which funding is requested. [NOTE: All items are not required.]</h5>
+		
+
+		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  1. Resource Materials: <span class="retractIcon fa fa-plus-circle"></span></h3>
+		<div class="hide">
+				<div class="moneyBox"><span class="fa fa-usd"></span><input name="resource_Budget" type="text" class="budgetInput" placeholder="amount" maxlength="5"></div>
+				<label class="label">
+					Explanation of Amount:
+				</label>
+			<textarea name="resource_explanation" rows="8" class="textArea" placeholder="Optional"></textarea> 
+		</div>	
+
+		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  2. Educational Supplies: <span class="retractIcon fa fa-plus-circle"></span></h3>
+		<div class="hide">
+				<div class="moneyBox"><span class="fa fa-usd"></span><input name="supplies_Budget" type="text" class="budgetInput" placeholder="amount" maxlength="5"></div>
+				<label class="label">
+					Explanation of Amount:
+				</label>
+			<textarea name="supplies_explanation" rows="8" class="textArea" placeholder="Optional"></textarea> 
+		</div>	
+
+		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  3. Student Support:  <span class="retractIcon fa fa-plus-circle"></span></h3>
+		<div class="hide">
+				<div class="moneyBox"><span class="fa fa-usd"></span><input name="studentSupport_Budget" type="text" class="budgetInput" placeholder="amount" maxlength="5"></div>
+				<label class="label">
+					Explanation of Amount:
+				</label>
+			<textarea name="studentSupport_explanation" rows="8" class="textArea" placeholder="Optional"></textarea> 
+		</div>
+
+		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  4. Staff Support:  <span class="retractIcon fa fa-plus-circle"></span></h3>
+		<div class="hide">
+				<div class="moneyBox"><span class="fa fa-usd"></span><input name="staffSupport_Budget" type="text" class="budgetInput" placeholder="amount" maxlength="5"></div>
+				<label class="label">
+					Explanation of Amount:
+				</label>
+			<textarea name="staffSupport_explanation" rows="8" class="textArea" placeholder="Optional"></textarea> 
+		</div>
+		
+		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  5. Community Member Support:  <span class="retractIcon fa fa-plus-circle"></span></h3>
+		<div class="hide">
+				<div class="moneyBox"><span class="fa fa-usd"></span><input name="comunitySupport_Budget" type="text" class="budgetInput" placeholder="amount" maxlength="5"></div>
+				<label class="label">
+					Explanation of Amount:
+				</label>
+			<textarea name="communitySupport_explanation" rows="8" class="textArea" placeholder="Optional"></textarea> 
+		</div>
+
+		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  6. Other:  <span class="retractIcon fa fa-plus-circle"></span></h3>
+		<div class="hide">
+				<div class="moneyBox"><span class="fa fa-usd"></span><input name="other_Budget" type="text" class="budgetInput" placeholder="amount" maxlength="5"></div>
+				<label class="label">
+					Explanation of Amount:
+				</label>
+			<textarea name="other_explanation" rows="8" class="textArea" placeholder="Optional"></textarea> 
+		</div>
+		
+
+		<h3 class="questionTitle">  Total Budget:  <span id="totalBox"> $<span id="total"></span></span></h3>
+		<h5 class="instructions">When you finish your proposal press finish. </h5>
+		<div class="buttonBox">
+			<button id="budgetButtonBack" class="Button backButton">Back</button>
+			<button id="finalButtonNext" class="Button">Finish!</button>
+		</div>
 </div>
 
 </body>

@@ -237,3 +237,41 @@ p {
 .checked {
     color: var(--main_green);
 }
+
+.budgetInput {
+    /* background: red; */
+    outline: none;
+    color: var(--main_green);
+    text-align: center;
+    width: 25%;
+    height: 30px;
+    font-size: 18px;
+    border: none;
+    font-size: 22px;
+    border-bottom: 3px solid var(--main_grey);
+    transition: 300ms;
+    padding-left: 5px;
+    
+}
+.fa-usd {
+    transition: 300ms;
+}
+.checkedBorder {
+    border-bottom: 3px solid var(--main_green);
+}
+.budgetInput:focus {
+    outline: none;
+}
+.budgetInput:placeholder, .budgetInput:-moz-placeholder, .budgetInput:-ms-input-placeholder {
+    font-size: 12px;
+}
+.moneyBox {
+    font-size: 22px;
+    padding: 5px 0px;
+    /* background: red; */
+    text-align: center;
+}
+#totalBox {
+    float: right;
+    font-size: 20px;
+}
