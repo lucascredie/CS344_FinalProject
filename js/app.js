@@ -68,6 +68,41 @@ $( document ).ready(function() {
         move($("#contactForm"), $("#statusForm"));
     
     })
+    //from contact to proposal
+    $("#contactButtonNext").on("click", function(){
+
+        move($("#contactForm"), $("#proposalForm"));
+    
+    })
+    //from proposal back to contact
+    $("#proposalButtonBack").on("click", function(){
+        
+        move($("#proposalForm"), $("#contactForm"));
+            
+    })
+    //from proposal to budget
+    $("#proposalButtonNext").on("click", function(){
+        
+        // move(, $("#proposalForm"));
+            
+    })
+
+    //retract icon functionality
+    $(".retractIcon ").on("click", function(){
+        $(this).toggleClass("fa-minus-circle")
+        console.log("rectract");
+        $(this).parent().next().slideToggle();   //toggles div after it
+       
+    })
+    //validation checkmark for form
+    $(".textArea").on("input", function(){
+        let currentVal = $(this).val();
+        if(currentVal != "") {
+            $(this).parent().prev().children().first().addClass("checked");
+        } else {
+            $(this).parent().prev().children().first().removeClass("checked");
+        }
+    });
 
 
 
@@ -75,9 +110,5 @@ $( document ).ready(function() {
         currentForm.hide();
         nextForm.show();
     }
-
-   
-
-    
 
 });
