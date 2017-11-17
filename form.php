@@ -4,6 +4,7 @@
 
 <body>
 
+
 <div id="statusForm" class="form animated zoomIn">
 
 	<h1 class="formTitle">What is Your Status?</h1>
@@ -74,7 +75,7 @@
 			<label class="label groupNameInput">
 			Name of Group (student org, campus dept, etc.): 
 			</label>
-			<input class="textInput groupNameInput" type="text" name="groupName">
+			<input class="textInput groupNameInput" type="text" name="groupName" value="">
 			
 			<label class="label">
 			Name of Faculty or Staff Project Advisor: 
@@ -84,7 +85,7 @@
 			<label class="label">
 			Advisor’s Email Address: 
 			</label>
-			<input class="textInput" type="text" name="advisorEmail">
+			<input class="textInput" type="email" name="advisorEmail">
 
 			<label class="label">
 			Advisor’s Department or Organization: 
@@ -94,10 +95,10 @@
 			<label class="label">
 			Advisor’s Phone Number(s):
 			</label>
-			<input class="textInput" type="number" name="advisorPhone">
+			<input class="textInput" type="tel" name="advisorPhone">
 
 		</div>
-
+		<p class="errorMessage hide"> Please make sure you are entering valid information.</p>
 		<div class="buttonBox">
 			<button id="studentButtonBack" class="Button backButton">Back</button>
 			<button id="studentButtonNext" class="Button">Next</button>
@@ -126,7 +127,7 @@
 		<label class="label">
 		Primary Contact Email
 		</label>
-		<input class="textInput" type="text" name="contactEmail">
+		<input class="textInput" type="email" name="contactEmail">
 
 		<label class="label">
 		Campus Affiliation (Name of Organization, Department, or Office): 
@@ -135,6 +136,7 @@
 	
 	</div>
 
+		<p class="errorMessage hide"> Please make sure you are entering valid information.</p>
 		<div class="buttonBox">
 			<button id="contactButtonBack" class="Button backButton">Back</button>
 			<button id="contactButtonNext" class="Button">Next</button>
@@ -240,7 +242,7 @@
 				<textarea name="projectPotential" rows="8" class="textArea textAreaCheck" placeholder="Enter summary" maxlength="600"></textarea> 
 			</div>
 
-		
+			<p class="errorMessage hide"> Please make sure you are entering valid information.</p>
 			<div class="buttonBox">
 				<button id="proposalButtonBack" class="Button backButton">Back</button>
 				<button id="proposalButtonNext" class="Button">Next</button>
@@ -314,11 +316,14 @@
 
 		<h3 class="questionTitle">  Total Budget:  <span id="totalBox"> $<span id="total"></span></span></h3>
 		<h5 class="instructions">When you finish your proposal press finish. </h5>
+		<p class="errorMessage hide"> Please make sure you are entering valid information.</p>
 		<div class="buttonBox">
 			<button id="budgetButtonBack" class="Button backButton">Back</button>
 			<button id="finishButton" class="Button">Finish!</button>
 		</div>
 </div>
+
+
 
 </body>
 

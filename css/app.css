@@ -287,3 +287,16 @@ p {
     float: right;
     font-size: 20px;
 }
+.errorMessage {
+    /* background: rgba(255, 209, 167,0.2); */
+    padding: 15px;
+    width: 370px;
+    margin: 0px auto;
+    /* border: 1px solid rgba(240, 140, 69, 0.3); */
+    border-left: 8px solid rgba(240, 140, 69, 0.9);
+    color: var(--main_orange);
+}
+.invalidInput {
+    background: rgba(255, 209, 167,0.2);
+    border: 1px solid rgba(240, 140, 69, 0.3);
+}

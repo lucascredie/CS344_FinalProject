@@ -38,16 +38,20 @@ $( document ).ready(function() {
                 group = groupInput;
             
                 //hides group name of next form if the person is not working on group
+                //this also sets value of group name if student is not ina group to Group Name
+                //we set that value so validator doesnt break and to give a default value of null
                 if(group == "alone") {
                     $(".groupNameInput").hide();
+                    $(".groupNameInput").val("null");
                 } else {
                      $(".groupNameInput").show();
+                     $(".groupNameInput").val("");
                 }
            
             move($("#statusForm"),$("#studentForm"));
 
         } else {
-            group = null; //can be something else depending on database 
+            // group = "null"; //can be something else depending on database 
             move($("#statusForm"), $("#contactForm"));
         }
 
@@ -58,40 +62,51 @@ $( document ).ready(function() {
     //STUDENT FORM
     // from student information TO contact
     $("#studentButtonNext").on("click", function(){
-        
-        getValues("studentForm");
+    
+       let response = getInputValues("studentForm");
        
+       //if the number of valid inputs we get is equal to the number of inputs of the form
+       if(response[0].length == response[1]) {
+           //everything is valid so we move
+           move($("#studentForm"), $("#contactForm"));
+       } 
 
-        move($("#studentForm"), $("#contactForm"));
     })
 
-    //from student information BACK to status
-    $("#studentButtonBack").on("click", function(){
-        
+        //from student information BACK to status
+        $("#studentButtonBack").on("click", function(){
+            clearErrors()
 
-        move($("#studentForm"), $("#statusForm"));
-    })
+            move($("#studentForm"), $("#statusForm"));
+        })
 
-    //from contact BACK to status or student info 
-    $("#contactButtonBack").on("click", function(){
-        //if user is a student
-        if(status == "student") {
-            //we move back to student info form
-            move($("#contactForm"), $("#studentForm"));
-        } else {
-            //otherwise back to status form
-            move($("#contactForm"), $("#statusForm"));
-        }
-    })
+        //from contact BACK to status or student info 
+        $("#contactButtonBack").on("click", function(){
+            clearErrors()
+            //if user is a student
+            if(status == "student") {
+                //we move back to student info form
+                move($("#contactForm"), $("#studentForm"));
+            } else {
+                //otherwise back to status form
+                move($("#contactForm"), $("#statusForm"));
+            }
+        })
     //from contact to proposal
     $("#contactButtonNext").on("click", function(){
+      
 
-        move($("#contactForm"), $("#proposalForm"));
-    
+        let response = getInputValues("contactForm");
+
+        if(response[0].length == response[1]) {
+            //everything is valid so we move
+            move($("#contactForm"), $("#proposalForm"));
+        } 
+
     })
         //from proposal BACK to contact
         $("#proposalButtonBack").on("click", function(){
-            
+            clearErrors()
             move($("#proposalForm"), $("#contactForm"));
                 
         })
@@ -101,12 +116,12 @@ $( document ).ready(function() {
         move($("#proposalForm"), $("#budgetForm"));
             
     })
-    //from budget BACK to proposal
-    $("#budgetButtonBack").on("click", function(){
-        
-        move($("#budgetForm"),$("#proposalForm"));
+        //from budget BACK to proposal
+        $("#budgetButtonBack").on("click", function(){
+            clearErrors()
+            move($("#budgetForm"),$("#proposalForm"));
             
-    })
+        })
 
     //retract icon functionality on proposal and budget forms
     $(".retractIcon ").on("click", function(){
@@ -148,16 +163,25 @@ $( document ).ready(function() {
         calculateTotalValue();
        
     });
+    //removes invalid input class
+    $("input").on("focus", function(){
+        $(this).removeClass("invalidInput animated shake");
+        
+    });
 
     // FINAL SUBMIT
     $("#finishButton").on("click", function(){
         //sucessfull anim
+
         console.log("finished");
         $("#budgetForm").hide();
         // $("#budgetForm").addClass("animated bounceOutUp");
         $("#budgetForm").show();
 
     })
+
+    
+}); // END OF READY STATEMENT
 
     // =========================================================================
     //                          FUNCTIONS
@@ -189,22 +213,80 @@ $( document ).ready(function() {
             $("#total").removeClass("checked");
          }
     }
+   
+    function getInputValues(formname) { 
+        //create array
+        let values = new Array();
+        let numberOfInputs = 0; //this counts how many iterations
+        //select form, find inputs div and all input tags inside. for each
+        
+        $("#"+formname).find(".inputs").find("input").each(function(){
+            
+            //get current value and type of input
+            let currentValue = String($(this).val());
+            let currentType = $(this).attr('type');
+            console.log(`${currentValue} -> ${typeof(currentValue)} || ${currentType}`);
+            $(this).removeClass("invalidInput animated shake");
+            //validate based on type.
+            if(validateInput(currentType, currentValue)) {
+                //if valid put in array
+                values.push(currentValue)
 
-    function getValues(formname) {
-        $("#"+formname).find(".inputs").children().each(function(){
-            console.log($(this).val());
+            } else {
+                // $(this).val("invalid");
+                $(this).addClass("invalidInput animated shake");
+                displayError();
+            }
+            numberOfInputs++; //increment
         });
+        
+     
+        console.log(values.length);
+        return [values, numberOfInputs]; 
+        //THIS RETURNS AN ARRAY OF ELEMENTS AND NUMBER OF INPUTS OF FORM
+        //we do that com compaare them. if values  = 5 and number of inputs = 5 then all of them are valid.
     }
 
+    function displayError() {
+        // $("#errorMessage").text("Please make sure you are entering valid information.");
+        $(".errorMessage").slideDown();
+    }
+    function clearErrors() {
+        $(".errorMessage").slideUp();
+        $("input").removeClass("invalidInput animated shake");
+    }
+
+
+   
     // =========================================================================
     //                        DATA VALIDATION FUNCTIONS
     // =========================================================================
     //note: this uses validator.js library :)
-    
-});
+
+function validateInput(inputType, inputValue) {
+    let isValid = false;
+    if(inputType == "text") {
+        isValid = isText(inputValue);
+    } else if(inputType == "email") {
+        isValid = isEmail(inputValue);
+    } else if(inputType == "tel") {
+        isValid = isPhone(inputValue);
+        
+    } else if(inputType == "number") {
+        isValid = isNumber(inputValue);
+    }
+    else if(inputType == "textArea") {
+        isValid = isTextArea(inputValue);
+    }
+    console.log("Is Valid: " + isValid);
+
+    //handle what is not valid
+    return isValid;
+}
 
 function isText(text) {
-    return validator.isAlpha(text);
+    let filteredText = validator.blacklist(text, [' ', '.', "'"]);
+    return validator.isAlpha(filteredText);
 }
 
 function isEmail(email) {
@@ -215,8 +297,19 @@ function isPhone(phoneStr) {
     return validator.isMobilePhone(phoneStr, "en-US"); //checks for phones in the US
 }
 
+function isNumber(num) {
+    return validator.isNumeric(num); //checks if string contains only numbers
+}
+
+function isTextArea(text) {
+    let filteredText = validator.blacklist(text, [' ', '.',';','(',')','?','!','-','/','    ']);
+    return validator.isAlpha(filteredText);
+    
+}
 
 
-// =============================================================================
-//                          DATA SANITIZATION??
-// =============================================================================
+
+
+    // =============================================================================
+    //                          DATA SANITIZATION??
+    // =============================================================================
