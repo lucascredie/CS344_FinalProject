@@ -1,0 +1,38 @@
+studentForm
+    groupName
+    advisorName
+    advisorEmail
+    advisorDepartment
+    advisorPhone
+
+contactForm
+    projectTitle
+    contactName
+    contactEmail
+    contactAfilliation
+
+proposalForm
+    proposalSummary
+    inputEndorsment
+    anticipatedOutcome
+    projectBenchmarking
+    accountability
+    costSavings
+    selfSufficiency
+    projectLifespan
+    sustainability
+    projectPotential
+
+budgetForm
+    resourceBudget
+    resourceExplanation
+    suppliesBudget
+    suppliesExplanation
+    studentSupportBudget
+    studentSupportExplanation
+    staffSupportBudget
+    staffSupportExplanation
+    communitySupportBudget
+    communitySupportExplanation
+    otherBudget
+    otherExplanation

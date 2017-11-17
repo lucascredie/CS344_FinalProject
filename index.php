@@ -52,7 +52,7 @@
     <h5 id="note">You may save and continue working on the application at a later date, for up to ONE MONTH.</h5>
     
     <div class="buttonBox">
-        <a class="Button" href="userTypeForm.php">Start</a>
+        <a class="Button" href="form.php">Start</a>
     </div>
 
 </div>

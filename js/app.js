@@ -55,16 +55,19 @@ $( document ).ready(function() {
         // console.log(group);         
     });
 
+    //STUDENT FORM
     // from student information TO contact
     $("#studentButtonNext").on("click", function(){
-        console.log("baaack");
+        
+        getValues("studentForm");
+       
 
         move($("#studentForm"), $("#contactForm"));
     })
 
     //from student information BACK to status
     $("#studentButtonBack").on("click", function(){
-        console.log("baaack");
+        
 
         move($("#studentForm"), $("#statusForm"));
     })
@@ -154,7 +157,6 @@ $( document ).ready(function() {
         // $("#budgetForm").addClass("animated bounceOutUp");
         $("#budgetForm").show();
 
-        
     })
 
     // =========================================================================
@@ -188,8 +190,33 @@ $( document ).ready(function() {
          }
     }
 
-    function setValue() {
-    
+    function getValues(formname) {
+        $("#"+formname).find(".inputs").children().each(function(){
+            console.log($(this).val());
+        });
     }
 
+    // =========================================================================
+    //                        DATA VALIDATION FUNCTIONS
+    // =========================================================================
+    //note: this uses validator.js library :)
+    
 });
+
+function isText(text) {
+    return validator.isAlpha(text);
+}
+
+function isEmail(email) {
+    return validator.isEmail(email);
+}
+
+function isPhone(phoneStr) {
+    return validator.isMobilePhone(phoneStr, "en-US"); //checks for phones in the US
+}
+
+
+
+// =============================================================================
+//                          DATA SANITIZATION??
+// =============================================================================
