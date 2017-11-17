@@ -1,72 +1,82 @@
 //WE WILL STORE DATA IN JAVASCRIPT UNTIL FINAL SUBMIT BUTTON SENDS USING AJAX TO PHP
-$( document ).ready(function() {
-    console.log( "ready!" );
-    //DATA
+
+// =============================================================================
+//                              DATA SECTION
+// =============================================================================
     let status;
     let group;
     let totalBudget;
+
+
+// =============================================================================
+//                              APPLICATION
+// =============================================================================
+$( document ).ready(function() {
+    console.log( "ready!" );
     //EVENTS
 
     /*  check for a change in input and display section 
         of project alone or in a group if user is a student */
     $("input:radio[name=status]").change(function(){
-         //gets value of what is checked
+         //gets value of what is checked as soon as there is change
         let statusInput = $("input:radio[name=status]:checked").val(); 
        
-        if(statusInput == "student") { //if student
-            $("#studentBox").slideDown("fast"); //show option for group
+        if(statusInput == "student") { //if value is student
+            $("#studentBox").slideDown("fast"); //we show option for group
         } else {  
-            $("#studentBox").slideUp("fast"); //otherwise hide
-        } }); 
+            $("#studentBox").slideUp("fast"); //otherwise we hide group name option
+        } 
+    }); 
 
     /*  check for status submit button clicked and move to next form */
     $("#statusButtonSubmit").on("click",function(){
         let statusInput = $("input:radio[name=status]:checked").val();
         status = statusInput;
 
-        if(statusInput == "student") {
-            let groupInput = $("input:radio[name=group]:checked").val();
-            group = groupInput;
+            if(statusInput == "student") {
+                let groupInput = $("input:radio[name=group]:checked").val();
+                group = groupInput;
             
-            //hides group name if the person is alone
-            if(group == "alone") {
-                $(".groupNameInput").hide();
-            } else {
-                $(".groupNameInput").show();
-            }
+                //hides group name of next form if the person is not working on group
+                if(group == "alone") {
+                    $(".groupNameInput").hide();
+                } else {
+                     $(".groupNameInput").show();
+                }
            
             move($("#statusForm"),$("#studentForm"));
 
-
         } else {
-            group = null; //can be something else too  
+            group = null; //can be something else depending on database 
             move($("#statusForm"), $("#contactForm"));
         }
 
-        console.log(status);
-        console.log(group);
-                
+        // console.log(status);
+        // console.log(group);         
     });
-    // from student information to contact
+
+    // from student information TO contact
     $("#studentButtonNext").on("click", function(){
         console.log("baaack");
 
         move($("#studentForm"), $("#contactForm"));
-    
     })
-    //from student information to status
+
+    //from student information BACK to status
     $("#studentButtonBack").on("click", function(){
         console.log("baaack");
 
         move($("#studentForm"), $("#statusForm"));
-    
     })
-    //from contact back to status or student info deppending on users choice
+
+    //from contact BACK to status or student info 
     $("#contactButtonBack").on("click", function(){
-        console.log("baaack");
+        //if user is a student
         if(status == "student") {
+            //we move back to student info form
             move($("#contactForm"), $("#studentForm"));
         } else {
+            //otherwise back to status form
             move($("#contactForm"), $("#statusForm"));
         }
     })
@@ -76,34 +86,35 @@ $( document ).ready(function() {
         move($("#contactForm"), $("#proposalForm"));
     
     })
-    //from proposal back to contact
-    $("#proposalButtonBack").on("click", function(){
-        
-        move($("#proposalForm"), $("#contactForm"));
+        //from proposal BACK to contact
+        $("#proposalButtonBack").on("click", function(){
             
-    })
+            move($("#proposalForm"), $("#contactForm"));
+                
+        })
     //from proposal to budget
     $("#proposalButtonNext").on("click", function(){
         
         move($("#proposalForm"), $("#budgetForm"));
             
     })
-
+    //from budget BACK to proposal
     $("#budgetButtonBack").on("click", function(){
         
         move($("#budgetForm"),$("#proposalForm"));
             
     })
 
-    //retract icon functionality
+    //retract icon functionality on proposal and budget forms
     $(".retractIcon ").on("click", function(){
-        $(this).toggleClass("fa-minus-circle")
-        console.log("rectract");
-        $(this).parent().next().slideToggle();   //toggles div after it
+        $(this).toggleClass("fa-minus-circle"); //toggle from + to -
+        $(this).parent().next().slideToggle();   //opens div after it
        
     })
-    //validation checkmark for form
+
+    //checkmark notice for proposal form
     $(".textAreaCheck").on("input", function(){
+        //checks if user entered something in text area
         let currentVal = $(this).val();
         if(currentVal != "") {
             $(this).parent().prev().children().first().addClass("checked");
@@ -112,9 +123,8 @@ $( document ).ready(function() {
         }
     });
 
-    //validation checkmark for budget
+    //checkmark for budget. Check if it is empty and add styles
     $(".budgetInput").on("input", function(){
-        
         
         let currentVal = $(this).val();
         if(currentVal != "") {
@@ -132,25 +142,54 @@ $( document ).ready(function() {
         }
 
         //calculates total everytime user puts input
+        calculateTotalValue();
+       
+    });
+
+    // FINAL SUBMIT
+    $("#finishButton").on("click", function(){
+        //sucessfull anim
+        console.log("finished");
+        $("#budgetForm").hide();
+        // $("#budgetForm").addClass("animated bounceOutUp");
+        $("#budgetForm").show();
+
+        
+    })
+
+    // =========================================================================
+    //                          FUNCTIONS
+    // =========================================================================
+
+    function move(currentForm, nextForm) {
+        //hides current form and show next.
+        //animations are in html :)
+        currentForm.hide();
+        nextForm.show();
+    }
+
+    function calculateTotalValue() {
+        //function called every time user tipes a number into budget input
         totalBudget = 0;
+        //for each input we add it to total budget
         $(".budgetInput").each(function() {
             totalBudget += Number($(this).val());
          });
+
+         //sets total div text
          $("#total").text(totalBudget);
          console.log("total:  " + totalBudget);
 
+         //displays color green
          if(totalBudget != 0) {
             $("#total").addClass("checked");
          } else {
             $("#total").removeClass("checked");
          }
-       
-    });
+    }
 
-
-    function move(currentForm, nextForm) {
-        currentForm.hide();
-        nextForm.show();
+    function setValue() {
+    
     }
 
 });

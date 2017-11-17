@@ -143,7 +143,7 @@
 		
 
 		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  1. Resource Materials: <span class="retractIcon fa fa-plus-circle"></span></h3>
-		<div class="hide">
+		<div class="">
 				<div class="moneyBox"><span class="fa fa-usd"></span><input name="resource_Budget" type="text" class="budgetInput" placeholder="amount" maxlength="5"></div>
 				<label class="label">
 					Explanation of Amount:
@@ -203,6 +203,10 @@
 			<button id="budgetButtonBack" class="Button backButton">Back</button>
 			<button id="finalButtonNext" class="Button">Finish!</button>
 		</div>
+</div>
+
+<div id="sucessForm" class="form">
+	<h1 class="formTitle"> Budget Details </h1>
 </div>
 	
 </body>

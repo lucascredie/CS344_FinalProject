@@ -316,7 +316,7 @@
 		<h5 class="instructions">When you finish your proposal press finish. </h5>
 		<div class="buttonBox">
 			<button id="budgetButtonBack" class="Button backButton">Back</button>
-			<button id="finalButtonNext" class="Button">Finish!</button>
+			<button id="finishButton" class="Button">Finish!</button>
 		</div>
 </div>
 

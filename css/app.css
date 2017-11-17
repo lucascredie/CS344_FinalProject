@@ -85,6 +85,7 @@ INDEX
     width: 80%;
     padding: 20px;
     background: rgb(253, 253, 253);
+    margin: 0px auto;
     border-radius: 2px;
     border: 1px solid rgba(185, 185, 185, 0.2);
 }
@@ -207,7 +208,16 @@ p {
     resize: none;
     display: block;
     width: 100%;
+    height: 20px;
+    transition: 300ms;
 }
+.textArea:focus {
+    /* transform: scale(1.03, 1.03); */
+    outline: none;
+    height: 120px;
+    transition: 300ms;
+}
+
 .questionTitle {
     font-size: 17px;
     margin-bottom: 0px;
