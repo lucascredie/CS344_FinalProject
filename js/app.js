@@ -1,3 +1,10 @@
+// =============================================================================
+//  TODO
+// =============================================================================
+ /*
+
+ */
+
 //WE WILL STORE DATA IN JAVASCRIPT UNTIL FINAL SUBMIT BUTTON SENDS USING AJAX TO PHP
 
 // =============================================================================
@@ -6,7 +13,41 @@
     let status;
     let group;
     let totalBudget;
-
+//studentForm
+    let groupName;
+    let advisorName;
+    let advisorEmail;
+    let advisorDepartment;
+    let advisorPhone;
+//contactForm
+    let projectTitle;
+    let contactName;
+    let contactEmail;
+    let contactAfilliation;
+//proposalForm
+    let proposalSummary;
+    let inputEndorsment;
+    let anticipatedOutcome;
+    let projectBenchmarking;
+    let accountability;
+    let costSavings;
+    let selfSufficiency;
+    let projectLifespan;
+    let sustainability;
+    let projectPotential;
+//budgetForm
+    let resourceBudget;
+    let resourceExplanation;
+    let suppliesBudget;
+    let suppliesExplanation;
+    let studentSupportBudget;
+    let studentSupportExplanation;
+    let staffSupportBudget;
+    let staffSupportExplanation;
+    let communitySupportBudget;
+    let communitySupportExplanation;
+    let otherBudget;
+    let otherExplanation;
 
 // =============================================================================
 //                              APPLICATION
@@ -14,7 +55,6 @@
 $( document ).ready(function() {
     console.log( "ready!" );
     //EVENTS
-
     /*  check for a change in input and display section 
         of project alone or in a group if user is a student */
     $("input:radio[name=status]").change(function(){
@@ -62,12 +102,18 @@ $( document ).ready(function() {
     //STUDENT FORM
     // from student information TO contact
     $("#studentButtonNext").on("click", function(){
-    
+        clearErrors()
        let response = getInputValues("studentForm");
        
        //if the number of valid inputs we get is equal to the number of inputs of the form
        if(response[0].length == response[1]) {
-           //everything is valid so we move
+           //everything is valid
+           groupName = response[0][0];
+           advisorName = response[0][1];
+           advisorEmail = response[0][2];
+           advisorDepartment = response[0][3];
+           advisorPhone = response[0][4];
+
            move($("#studentForm"), $("#contactForm"));
        } 
 
@@ -80,41 +126,102 @@ $( document ).ready(function() {
             move($("#studentForm"), $("#statusForm"));
         })
 
-        //from contact BACK to status or student info 
-        $("#contactButtonBack").on("click", function(){
-            clearErrors()
-            //if user is a student
-            if(status == "student") {
-                //we move back to student info form
-                move($("#contactForm"), $("#studentForm"));
-            } else {
-                //otherwise back to status form
-                move($("#contactForm"), $("#statusForm"));
-            }
-        })
+       
     //from contact to proposal
     $("#contactButtonNext").on("click", function(){
-      
-
+        clearErrors()
         let response = getInputValues("contactForm");
-
+    
         if(response[0].length == response[1]) {
-            //everything is valid so we move
+            //everything is valid 
+            projectTitle = response[0][0];
+            contactName = response[0][1];
+            contactEmail = response[0][2];
+            contactAfilliation = response[0][3];
+
             move($("#contactForm"), $("#proposalForm"));
         } 
 
     })
-        //from proposal BACK to contact
-        $("#proposalButtonBack").on("click", function(){
-            clearErrors()
-            move($("#proposalForm"), $("#contactForm"));
-                
-        })
+     //from contact BACK to status or student info 
+     $("#contactButtonBack").on("click", function(){
+        clearErrors()
+        //if user is a student
+        if(status == "student") {
+            //we move back to student info form
+            move($("#contactForm"), $("#studentForm"));
+        } else {
+            //otherwise back to status form
+            move($("#contactForm"), $("#statusForm"));
+        }
+    })
+        
     //from proposal to budget
     $("#proposalButtonNext").on("click", function(){
-        
+        clearErrors()
+        let response = getTextAreaValues("proposalForm");
+
+        if(response[0].length == response[1]) {
+
+            proposalSummary = response[0][0];
+            inputEndorsment = response[0][1];
+            anticipatedOutcome = response[0][2];
+            projectBenchmarking = response[0][3];
+            accountability = response[0][4];
+            costSavings = response[0][5];
+            selfSufficiency = response[0][6];
+            projectLifespan = response[0][7];
+            sustainability = response[0][8];
+            projectPotential = response[0][9];
+
         move($("#proposalForm"), $("#budgetForm"));
+        }
             
+    })
+    //from proposal BACK to contact
+    $("#proposalButtonBack").on("click", function(){
+        clearErrors()
+        move($("#proposalForm"), $("#contactForm"));
+            
+    })
+
+    // =========================================================================
+    // FINAL SUBMIT - AJAX REQUEST IF VALIDATED
+    // =========================================================================
+    
+    //budget form next buttton
+     $("#finishButton").on("click", function(){
+        //sucessfull anim
+        let response = getBudgetValues("budgetForm");
+
+        if(response[0].length == response[1]) {
+
+            resourceBudget = response[0][0];
+            resourceExplanation = response[2][0];
+
+            suppliesBudget = response[0][1];
+            suppliesExplanation = response[2][1];
+
+            studentSupportBudget = response[0][2];
+            studentSupportExplanation = response[2][2];
+
+            staffSupportBudget = response[0][3];
+            staffSupportExplanation = response[2][3];
+
+            communitySupportBudget = response[0][4];
+            communitySupportExplanation = response[2][4];
+
+            otherBudget = response[0][5];
+            otherExplanation = response[2][5];
+            //DISPLAY FINISH 
+
+            
+            $("#budgetForm").hide();
+            $("#budgetForm").addClass("animated zoomOut");
+            $("#budgetForm").show();
+        }
+       
+
     })
         //from budget BACK to proposal
         $("#budgetButtonBack").on("click", function(){
@@ -168,19 +275,10 @@ $( document ).ready(function() {
         $(this).removeClass("invalidInput animated shake");
         
     });
-
-    // FINAL SUBMIT
-    $("#finishButton").on("click", function(){
-        //sucessfull anim
-
-        console.log("finished");
-        $("#budgetForm").hide();
-        // $("#budgetForm").addClass("animated bounceOutUp");
-        $("#budgetForm").show();
-
-    })
-
-    
+    $("textarea").on("focus", function(){
+        $(this).removeClass("invalidInput animated shake");
+        
+    });
 }); // END OF READY STATEMENT
 
     // =========================================================================
@@ -239,19 +337,100 @@ $( document ).ready(function() {
             }
             numberOfInputs++; //increment
         });
-        
-     
+
         console.log(values.length);
         return [values, numberOfInputs]; 
         //THIS RETURNS AN ARRAY OF ELEMENTS AND NUMBER OF INPUTS OF FORM
         //we do that com compaare them. if values  = 5 and number of inputs = 5 then all of them are valid.
     }
 
+    function getTextAreaValues(formname) {
+        //create array
+        let values = new Array();
+        let numberOfInputs = 0; //this counts how many iterations
+        //select form, find inputs div and all input tags inside. for each
+        
+        $("#"+formname).find("textarea").each(function(){
+            
+            //get current value and type of input
+            let currentValue = String($(this).val());
+            console.log(currentValue);
+            $(this).removeClass("invalidInput animated shake");
+
+
+            //validate based on type.
+            if(validateInput("textarea", currentValue)) {
+            //     //if valid put in array
+                values.push(currentValue);
+
+            } else {
+                // $(this).val("invalid");
+                $(this).addClass("invalidInput animated shake");
+                displayError();
+            }
+            numberOfInputs++; //increment
+        });
+        console.log(values.length);
+        return [values, numberOfInputs]; 
+        //THIS RETURNS AN ARRAY OF ELEMENTS AND NUMBER OF INPUTS OF FORM
+        //we do that com compaare them. if values  = 5 and number of inputs = 5 then all of them are valid.
+    }
+
+    function getBudgetValues(formname) {
+        //create arrays
+        let values = new Array();
+        let descriptions = new Array();
+        let numberOfInputs = 0; //this counts how many iterations
+        //select form, find inputs div and all input tags inside. for each
+        
+        $("#"+formname).find("input").each(function(){
+            
+            //get current value and type of input
+            let currentValue = String($(this).val());
+            
+            $(this).removeClass("invalidInput animated shake");
+
+            //validate based on type.
+            if(validateInput("number", currentValue)) {
+            //     //if valid put in array
+                console.log(currentValue);
+                values.push(currentValue);
+
+            } else {
+                // $(this).val("invalid");
+                $(this).addClass("invalidInput animated shake");
+                displayError();
+            }
+            numberOfInputs++; //increment
+        });
+
+        //optional anyways so not alot 
+        $("#"+formname).find("textarea").each(function(){
+                let currentDescription = $(this).val();
+
+                if(validateInput("textarea",currentDescription)){
+                    console.log(currentDescription);
+                    if(currentDescription == "Optional") {
+                        descriptions.push("null");
+                    } else {
+                        descriptions.push(currentDescription );
+                    }
+                }
+        });
+
+        console.log(values.length);
+        return [values, numberOfInputs, descriptions]; 
+        //THIS RETURNS AN ARRAY OF ELEMENTS AND NUMBER OF INPUTS OF FORM
+        //we do that com compaare them. if values  = 5 and number of inputs = 5 then all of them are valid.
+    }
+
+
     function displayError() {
         // $("#errorMessage").text("Please make sure you are entering valid information.");
         $(".errorMessage").slideDown();
     }
     function clearErrors() {
+        //clear errors
         $(".errorMessage").slideUp();
         $("input").removeClass("invalidInput animated shake");
     }
@@ -264,6 +443,7 @@ $( document ).ready(function() {
     //note: this uses validator.js library :)
 
 function validateInput(inputType, inputValue) {
+    //validates depending on type, returns bool
     let isValid = false;
     if(inputType == "text") {
         isValid = isText(inputValue);
@@ -274,10 +454,11 @@ function validateInput(inputType, inputValue) {
         
     } else if(inputType == "number") {
         isValid = isNumber(inputValue);
-    }
-    else if(inputType == "textArea") {
+
+    } else if(inputType == "textarea") {
         isValid = isTextArea(inputValue);
     }
+    
     console.log("Is Valid: " + isValid);
 
     //handle what is not valid
@@ -285,7 +466,7 @@ function validateInput(inputType, inputValue) {
 }
 
 function isText(text) {
-    let filteredText = validator.blacklist(text, [' ', '.', "'"]);
+    let filteredText = validator.blacklist(text, [' ', '.', "'"]); //allows those characters
     return validator.isAlpha(filteredText);
 }
 
@@ -298,18 +479,14 @@ function isPhone(phoneStr) {
 }
 
 function isNumber(num) {
-    return validator.isNumeric(num); //checks if string contains only numbers
+    if(Number(num) >= 0 && validator.isNumeric(num)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function isTextArea(text) {
-    let filteredText = validator.blacklist(text, [' ', '.',';','(',')','?','!','-','/','    ']);
-    return validator.isAlpha(filteredText);
-    
+    let filteredText = validator.blacklist(text, [' ', '.',';','(',')','?','!','-','/','    ','\n']);
+    return validator.isAlphanumeric(filteredText);
 }
-
-
-
-
-    // =============================================================================
-    //                          DATA SANITIZATION??
-    // =============================================================================

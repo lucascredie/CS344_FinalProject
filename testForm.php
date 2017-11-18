@@ -36,7 +36,7 @@
 		<h5 class="instructions"> Instructions: Please fill in answers 
 			to the following 10 questions. You may copy and paste your text 
 			from another document, if you wish. Click on the plus sign. </h5>
-
+		<div class="inputs">
 			<h3 class="questionTitle"><span class="completed fa fa-check"></span> 1. Project Description <span class="retractIcon fa fa-plus-circle"></span></h3>
 			<div class="hide">
 					<label class="label">
@@ -125,7 +125,8 @@
 					</label>
 				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
 			</div>
-		
+		</div>
+		<p class="errorMessage hide"> Please make sure you are entering valid information.</p>
 			<div class="buttonBox">
 				<button id="proposalButtonBack" class="Button backButton">Back</button>
 				<button id="proposalButtonNext" class="Button">Next</button>
@@ -134,80 +135,81 @@
 	
 <!-- 3rd Section of the Main Form (Budget Details) -->
 	
-<div id="budgetForm" class="form">
-		
-		<h1 class="formTitle"> Budget Details </h1>
-		<hr class="titleHR">
-		<h5 class="instructions"> Instructions: Please provide an explanation/justification 
-			for each line item for which funding is requested. [NOTE: All items are not required.]</h5>
-		
+<div id="budgetForm" class="form animated zoomIn">
 
-		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  1. Resource Materials: <span class="retractIcon fa fa-plus-circle"></span></h3>
-		<div class="">
-				<div class="moneyBox"><span class="fa fa-usd"></span><input name="resource_Budget" type="text" class="budgetInput" placeholder="amount" maxlength="5"></div>
-				<label class="label">
-					Explanation of Amount:
-				</label>
-			<textarea name="resource_explanation" rows="8" class="textArea" placeholder="Optional"></textarea> 
-		</div>	
+<h1 class="formTitle"> Budget Details </h1>
+<hr class="titleHR">
+<h5 class="instructions"> Instructions: Please provide an explanation/justification 
+	for each line item for which funding is requested. [NOTE: All items are not required.]. Type 0 if there is no budget.</h5>
 
-		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  2. Educational Supplies: <span class="retractIcon fa fa-plus-circle"></span></h3>
-		<div class="hide">
-				<div class="moneyBox"><span class="fa fa-usd"></span><input name="supplies_Budget" type="text" class="budgetInput" placeholder="amount" maxlength="5"></div>
-				<label class="label">
-					Explanation of Amount:
-				</label>
-			<textarea name="supplies_explanation" rows="8" class="textArea" placeholder="Optional"></textarea> 
-		</div>	
 
-		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  3. Student Support:  <span class="retractIcon fa fa-plus-circle"></span></h3>
-		<div class="hide">
-				<div class="moneyBox"><span class="fa fa-usd"></span><input name="studentSupport_Budget" type="text" class="budgetInput" placeholder="amount" maxlength="5"></div>
-				<label class="label">
-					Explanation of Amount:
-				</label>
-			<textarea name="studentSupport_explanation" rows="8" class="textArea" placeholder="Optional"></textarea> 
-		</div>
+<h3 class="questionTitle"><span class="completed fa fa-check"></span>  1. Resource Materials: <span class="retractIcon fa fa-plus-circle"></span></h3>
+<div class="hide">
+		<div class="moneyBox"><span class="fa fa-usd"></span><input name="resourceBudget" type="number" class="budgetInput" placeholder="amount" maxlength="5"></div>
+		<label class="label">
+			Explanation of Amount:
+		</label>
+	<textarea name="resourceExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600">Optional</textarea> 
+</div>	
 
-		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  4. Staff Support:  <span class="retractIcon fa fa-plus-circle"></span></h3>
-		<div class="hide">
-				<div class="moneyBox"><span class="fa fa-usd"></span><input name="staffSupport_Budget" type="text" class="budgetInput" placeholder="amount" maxlength="5"></div>
-				<label class="label">
-					Explanation of Amount:
-				</label>
-			<textarea name="staffSupport_explanation" rows="8" class="textArea" placeholder="Optional"></textarea> 
-		</div>
-		
-		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  5. Community Member Support:  <span class="retractIcon fa fa-plus-circle"></span></h3>
-		<div class="hide">
-				<div class="moneyBox"><span class="fa fa-usd"></span><input name="comunitySupport_Budget" type="text" class="budgetInput" placeholder="amount" maxlength="5"></div>
-				<label class="label">
-					Explanation of Amount:
-				</label>
-			<textarea name="communitySupport_explanation" rows="8" class="textArea" placeholder="Optional"></textarea> 
-		</div>
+<h3 class="questionTitle"><span class="completed fa fa-check"></span>  2. Educational Supplies: <span class="retractIcon fa fa-plus-circle"></span></h3>
+<div class="hide">
+		<div class="moneyBox"><span class="fa fa-usd"></span><input name="suppliesBudget" type="number" class="budgetInput" placeholder="amount" maxlength="5"></div>
+		<label class="label">
+			Explanation of Amount:
+		</label>
+	<textarea name="suppliesExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600">Optional</textarea> 
+</div>	
 
-		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  6. Other:  <span class="retractIcon fa fa-plus-circle"></span></h3>
-		<div class="hide">
-				<div class="moneyBox"><span class="fa fa-usd"></span><input name="other_Budget" type="text" class="budgetInput" placeholder="amount" maxlength="5"></div>
-				<label class="label">
-					Explanation of Amount:
-				</label>
-			<textarea name="other_explanation" rows="8" class="textArea" placeholder="Optional"></textarea> 
-		</div>
-		
-
-		<h3 class="questionTitle">  Total Budget:  <span id="totalBox"> $<span id="total"></span></span></h3>
-		<h5 class="instructions">When you finish your proposal press finish. </h5>
-		<div class="buttonBox">
-			<button id="budgetButtonBack" class="Button backButton">Back</button>
-			<button id="finalButtonNext" class="Button">Finish!</button>
-		</div>
+<h3 class="questionTitle"><span class="completed fa fa-check"></span>  3. Student Support:  <span class="retractIcon fa fa-plus-circle"></span></h3>
+<div class="hide">
+		<div class="moneyBox"><span class="fa fa-usd"></span><input name="studentSupportBudget" type="number" class="budgetInput" placeholder="amount" maxlength="5"></div>
+		<label class="label">
+			Explanation of Amount:
+		</label>
+	<textarea name="studentSupportExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600">Optional</textarea> 
 </div>
 
-<div id="sucessForm" class="form">
+<h3 class="questionTitle"><span class="completed fa fa-check"></span>  4. Staff Support:  <span class="retractIcon fa fa-plus-circle"></span></h3>
+<div class="hide">
+		<div class="moneyBox"><span class="fa fa-usd"></span><input name="staffSupportBudget" type="number" class="budgetInput" placeholder="amount" maxlength="5"></div>
+		<label class="label">
+			Explanation of Amount:
+		</label>
+	<textarea name="staffSupportExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600">Optional</textarea> 
+</div>
+
+<h3 class="questionTitle"><span class="completed fa fa-check"></span>  5. Community Member Support:  <span class="retractIcon fa fa-plus-circle"></span></h3>
+<div class="hide">
+		<div class="moneyBox"><span class="fa fa-usd"></span><input name="communitySupportBudget" type="number" class="budgetInput" placeholder="amount" maxlength="5"></div>
+		<label class="label">
+			Explanation of Amount:
+		</label>
+	<textarea name="communitySupportExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600">Optional</textarea> 
+</div>
+
+<h3 class="questionTitle"><span class="completed fa fa-check"></span>  6. Other:  <span class="retractIcon fa fa-plus-circle"></span></h3>
+<div class="hide">
+		<div class="moneyBox"><span class="fa fa-usd"></span><input name="otherBudget" type="number" class="budgetInput" placeholder="amount" maxlength="5"></div>
+		<label class="label">
+			Explanation of Amount:
+		</label>
+	<textarea name="otherExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600">Optional</textarea> 
+</div>
+
+
+<h3 class="questionTitle">  Total Budget:  <span id="totalBox"> $<span id="total"></span></span></h3>
+<h5 class="instructions">When you finish your proposal press finish. </h5>
+<p class="errorMessage hide"> Please make sure you are entering valid information.</p>
+<div class="buttonBox">
+	<button id="budgetButtonBack" class="Button backButton">Back</button>
+	<button id="finishButton" class="Button">Finish!</button>
+</div>
+</div>
+
+<!-- <div id="sucessForm" class="form">
 	<h1 class="formTitle"> Budget Details </h1>
-</div>
+</div> -->
 	
 </body>
 

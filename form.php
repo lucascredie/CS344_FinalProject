@@ -153,6 +153,7 @@
 			to the following 10 questions. You may copy and paste your text 
 			from another document, if you wish. Click on the plus sign. </h5>
 
+		<div class="inputs">
 			<h3 class="questionTitle"><span class="completed fa fa-check"></span> 1. Project Description <span class="retractIcon fa fa-plus-circle"></span></h3>
 			<div class="hide">
 					<label class="label">
@@ -241,6 +242,7 @@
 					</label>
 				<textarea name="projectPotential" rows="8" class="textArea textAreaCheck" placeholder="Enter summary" maxlength="600"></textarea> 
 			</div>
+		</div>
 
 			<p class="errorMessage hide"> Please make sure you are entering valid information.</p>
 			<div class="buttonBox">
@@ -256,61 +258,61 @@
 		<h1 class="formTitle"> Budget Details </h1>
 		<hr class="titleHR">
 		<h5 class="instructions"> Instructions: Please provide an explanation/justification 
-			for each line item for which funding is requested. [NOTE: All items are not required.]</h5>
+			for each line item for which funding is requested. [NOTE: Not All items are required.]</h5>
 		
 
 		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  1. Resource Materials: <span class="retractIcon fa fa-plus-circle"></span></h3>
 		<div class="hide">
-				<div class="moneyBox"><span class="fa fa-usd"></span><input name="resourceBudget" type="number" class="budgetInput" placeholder="amount" maxlength="5"></div>
+				<div class="moneyBox"><span class="fa fa-usd"></span><input name="resourceBudget" type="number" class="budgetInput" placeholder="amount" max="99999" min="0"></div>
 				<label class="label">
 					Explanation of Amount:
 				</label>
-			<textarea name="resourceExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600"></textarea> 
+			<textarea name="resourceExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600">Optional</textarea> 
 		</div>	
 
 		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  2. Educational Supplies: <span class="retractIcon fa fa-plus-circle"></span></h3>
 		<div class="hide">
-				<div class="moneyBox"><span class="fa fa-usd"></span><input name="suppliesBudget" type="number" class="budgetInput" placeholder="amount" maxlength="5"></div>
+				<div class="moneyBox"><span class="fa fa-usd"></span><input name="suppliesBudget" type="number" class="budgetInput" placeholder="amount" max="99999" min="0"></div>
 				<label class="label">
 					Explanation of Amount:
 				</label>
-			<textarea name="suppliesExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600"></textarea> 
+			<textarea name="suppliesExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600">Optional</textarea> 
 		</div>	
 
 		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  3. Student Support:  <span class="retractIcon fa fa-plus-circle"></span></h3>
 		<div class="hide">
-				<div class="moneyBox"><span class="fa fa-usd"></span><input name="studentSupportBudget" type="number" class="budgetInput" placeholder="amount" maxlength="5"></div>
+				<div class="moneyBox"><span class="fa fa-usd"></span><input name="studentSupportBudget" type="number" class="budgetInput" placeholder="amount" max="99999" min="0"></div>
 				<label class="label">
 					Explanation of Amount:
 				</label>
-			<textarea name="studentSupportExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600"></textarea> 
+			<textarea name="studentSupportExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600">Optional</textarea> 
 		</div>
 
 		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  4. Staff Support:  <span class="retractIcon fa fa-plus-circle"></span></h3>
 		<div class="hide">
-				<div class="moneyBox"><span class="fa fa-usd"></span><input name="staffSupportBudget" type="number" class="budgetInput" placeholder="amount" maxlength="5"></div>
+				<div class="moneyBox"><span class="fa fa-usd"></span><input name="staffSupportBudget" type="number" class="budgetInput" placeholder="amount" max="99999" min="0"></div>
 				<label class="label">
 					Explanation of Amount:
 				</label>
-			<textarea name="staffSupportExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600"></textarea> 
+			<textarea name="staffSupportExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600">Optional</textarea> 
 		</div>
 		
 		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  5. Community Member Support:  <span class="retractIcon fa fa-plus-circle"></span></h3>
 		<div class="hide">
-				<div class="moneyBox"><span class="fa fa-usd"></span><input name="communitySupportBudget" type="number" class="budgetInput" placeholder="amount" maxlength="5"></div>
+				<div class="moneyBox"><span class="fa fa-usd"></span><input name="communitySupportBudget" type="number" class="budgetInput" placeholder="amount" max="99999" min="0"></div>
 				<label class="label">
-					Explanation of Amount:
+					Explanation of Amount:Optional
 				</label>
-			<textarea name="communitySupportExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600"></textarea> 
+			<textarea name="communitySupportExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600">Optional</textarea> 
 		</div>
 
 		<h3 class="questionTitle"><span class="completed fa fa-check"></span>  6. Other:  <span class="retractIcon fa fa-plus-circle"></span></h3>
 		<div class="hide">
-				<div class="moneyBox"><span class="fa fa-usd"></span><input name="otherBudget" type="number" class="budgetInput" placeholder="amount" maxlength="5"></div>
+				<div class="moneyBox"><span class="fa fa-usd"></span><input name="otherBudget" type="number" class="budgetInput" placeholder="amount" max="99999" min="0"></div>
 				<label class="label">
 					Explanation of Amount:
 				</label>
-			<textarea name="otherExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600"></textarea> 
+			<textarea name="otherExplanation" rows="8" class="textArea" placeholder="Optional" maxlength="600">Optional</textarea> 
 		</div>
 		
 
