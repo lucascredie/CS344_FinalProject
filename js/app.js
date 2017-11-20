@@ -186,7 +186,7 @@ $( document ).ready(function() {
     })
 
     // =========================================================================
-    // FINAL SUBMIT - AJAX REQUEST IF VALIDATED
+    // FINAL SUBMIT - AJAX 
     // =========================================================================
     
     //budget form next buttton
@@ -215,10 +215,11 @@ $( document ).ready(function() {
             otherExplanation = response[2][5];
             //DISPLAY FINISH 
 
-            
             $("#budgetForm").hide();
             $("#budgetForm").addClass("animated zoomOut");
             $("#budgetForm").show();
+
+            //AJAX REQUEST GOES RIGHT HERE!!
         }
        
 
