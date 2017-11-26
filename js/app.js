@@ -70,7 +70,7 @@ $( document ).ready(function() {
 
     /*  check for status submit button clicked and move to next form */
     $("#statusButtonSubmit").on("click",function(){
-        let statusInput = $("input:radio[name=status]:checked").val();
+        let statusInput = $("input:radio[name=status]:checked").val(); //status of submitter
         status = statusInput;
 
             if(statusInput == "student") {
@@ -219,7 +219,41 @@ $( document ).ready(function() {
             $("#budgetForm").addClass("animated zoomOut");
             $("#budgetForm").show();
 
+			
+
+//proposalForm
+    let proposalSummary;
+    let inputEndorsment;
+    let anticipatedOutcome;
+    let projectBenchmarking;
+    let accountability;
+    let costSavings;
+    let selfSufficiency;
+    let projectLifespan;
+    let sustainability;
+    let projectPotential;
+//budgetForm
+    let resourceBudget;
+    let resourceExplanation;
+    let suppliesBudget;
+    let suppliesExplanation;
+    let studentSupportBudget;
+    let studentSupportExplanation;
+    let staffSupportBudget;
+    let staffSupportExplanation;
+    let communitySupportBudget;
+    let communitySupportExplanation;
+    let otherBudget;
+    let otherExplanation;
             //AJAX REQUEST GOES RIGHT HERE!!
+			statusInput //user status
+			$.ajax({
+				type: "POST",
+				url: "passTo.php",
+				data: {u_name: contactName, campus_affiliation: contactAfilliation, email: contactEmail, Status: status, a_name: advisorName, a_email: advisorEmail, dept: advisorDepartment, phone: advisorPhone,
+						group_name: groupName, title: projectTitle, amount: totalBudget, '002': , '003': , '004': , '005': , '006': , '007': , '008': , '009': , '010': , '011': , '012': }
+			}).done(function( msg ) {
+				alert( "Data Saved!");
         }
        
 
