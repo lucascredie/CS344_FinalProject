@@ -67,7 +67,7 @@ $( document ).ready(function() {
             $("#studentBox").slideUp("fast"); //otherwise we hide group name option
         } 
     }); 
-
+	
     /*  check for status submit button clicked and move to next form */
     $("#statusButtonSubmit").on("click",function(){
         let statusInput = $("input:radio[name=status]:checked").val(); //status of submitter
@@ -76,7 +76,7 @@ $( document ).ready(function() {
             if(statusInput == "student") {
                 let groupInput = $("input:radio[name=group]:checked").val();
                 group = groupInput;
-            
+				
                 //hides group name of next form if the person is not working on group
                 //this also sets value of group name if student is not ina group to Group Name
                 //we set that value so validator doesnt break and to give a default value of null
@@ -99,9 +99,18 @@ $( document ).ready(function() {
         // console.log(group);         
     });
 
+	$("#statusButtonSubmit").on("click",function(){
+		var val = 20 + '%';
+        $('#progress-bar').width(val).text(val);
+		document.getElementByClass("progress-bar").style.width= 20 + '%';
+	});
+
+
     //STUDENT FORM
     // from student information TO contact
     $("#studentButtonNext").on("click", function(){
+		
+		
         clearErrors()
        let response = getInputValues("studentForm");
        
@@ -116,19 +125,20 @@ $( document ).ready(function() {
 
            move($("#studentForm"), $("#contactForm"));
        } 
-
     })
 
         //from student information BACK to status
         $("#studentButtonBack").on("click", function(){
+			
             clearErrors()
-
             move($("#studentForm"), $("#statusForm"));
         })
 
        
     //from contact to proposal
     $("#contactButtonNext").on("click", function(){
+		
+		
         clearErrors()
         let response = getInputValues("contactForm");
     
@@ -155,6 +165,8 @@ $( document ).ready(function() {
             move($("#contactForm"), $("#statusForm"));
         }
     })
+	
+	
         
     //from proposal to budget
     $("#proposalButtonNext").on("click", function(){
@@ -525,3 +537,4 @@ function isTextArea(text) {
     let filteredText = validator.blacklist(text, [' ', '.',';','(',')','?','!','-','/','    ','\n']);
     return validator.isAlphanumeric(filteredText);
 }
+
