@@ -24,15 +24,15 @@ body {
  */
 
 #topBar {
-   
     padding-left: 30px;
     display: flex;
     align-items: center;
     height: 75px;
     border-top: 5px solid var(--winona_purple);
     border-bottom: 1px solid rgba(129, 129, 129, 0.15);
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 0px 0px;
 }
+
 #navLinks li {
     display: inline-block;
 }
@@ -114,7 +114,7 @@ p {
     border-radius: 2px;
     transition: 300ms;
     outline: none;
-  
+    border: none;
 }
 
 .Button:hover {
@@ -299,4 +299,38 @@ p {
 .invalidInput {
     background: rgba(255, 209, 167,0.2);
     border: 1px solid rgba(240, 140, 69, 0.3);
+}
+
+/* progressbar */
+#progress {
+    margin: 0px;
+    background: rgb(250, 250, 250);
+    height: 30px;
+    /* border-top: 1px solid rgb(52, 206, 116); */
+    /* border-bottom: 1px solid rgb(52, 206, 116); */
+    box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.1);
+}
+#bar {
+    height: 30px;
+    background: var(--main_green);
+    margin: 0px;
+    /* padding: 5px; */
+    width: 0%; /* ANIMATED */
+    transition: 500ms;
+}
+#percent {
+    font-size: 15px;
+    padding: 0px;
+    margin: 0px;
+   text-align: center;
+   transform: translateY(-25px);
+}
+
+/* Success page */
+#sucess {
+    text-align: center;
+    height: 250px;
+    background: red;
+    width: 350px;
+    margin: 40px auto;
 }

@@ -28,50 +28,47 @@
 	</form> -->
 	
 <!-- 2nd Section of the Main Form (Proposal Details) -->
-   
-<!-- <div id="proposalForm" class="form">
+  <!-- Proposal -->
+
+<!-- <div id="proposalForm" class="form animated zoomIn">
 
 		<h1 class="formTitle"> Proposal Details </h1>
-		<hr class="formHR">
+		<hr class="titleHR">
 		<h5 class="instructions"> Instructions: Please fill in answers 
 			to the following 10 questions. You may copy and paste your text 
 			from another document, if you wish. Click on the plus sign. </h5>
+
 		<div class="inputs">
-			<h3 class="questionTitle"><span class="completed fa fa-check"></span> 1. Project Description <span class="retractIcon fa fa-plus-circle"></span></h3>
+			<h3 class="questionTitle"><span class="completed fa fa-check"></span> 1. Student Experience <span class="retractIcon fa fa-plus-circle"></span></h3>
 			<div class="hide">
 					<label class="label">
-					Please provide a summary of your project. 
+					Project includes opportunities for student involvement and/or will positively impact the student experience.
 					</label>
-				<textarea name="summary" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="studentExperience" rows="8" class="textArea textAreaCheck" placeholder="Enter summary" maxlength="600"></textarea> 
 			</div>
 
-			<h3 class="questionTitle"><span class="completed fa fa-check"></span> 2. Student Input and Endorsement <span class="retractIcon fa fa-plus-circle"></span></h3>
+			<h3 class="questionTitle"><span class="completed fa fa-check"></span> 2. Connection to Campus <span class="retractIcon fa fa-plus-circle"></span></h3>
 			<div class="hide">
 					<label class="label">
-					How has your project sought student input and endorsement? This could include focus groups,
-					presentation to the SGA Student Sustainability Committee, student org endorsement, etc.
+					Project directly addresses environmental sustainability on the WSU campus or in the capacity that on-campus activities directly 
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="connectionToCampus" rows="8" class="textArea textAreaCheck" placeholder="Enter summary" maxlength="600"></textarea> 
 			</div>
 
-			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  3. Anticipated Outcomes/Impact <span class="retractIcon fa fa-plus-circle"></span></h3>
+			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  3. Feasibility and Institutional Support <span class="retractIcon fa fa-plus-circle"></span></h3>
 			<div class="hide">
 					<label class="label">
-					What outcomes do you anticipate? Discuss environmental benefits, impact on the student experience, 
-					and the education and outreach potential. If the project has environmental benefits, please quantify
-					those benefits in terms of kilowatt-hours saved, tons of greenhouse gas emissions reduced, 
-					gallons of storm-water treated, etc.
+					Project is feasible and has support from appropriate campus individuals and entities. Individual students or student organizations must have the signature of a faculty or staff advisor who is committed to advising throughout project implementation.
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="feasibilityAndSupport" rows="8" class="textArea textAreaCheck" placeholder="Enter summary" maxlength="600"></textarea> 
 			</div>
 
-			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  4. Project Benchmarking <span class="retractIcon fa fa-plus-circle"></span></h3>
+			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  4. Schedule and Budget Request <span class="retractIcon fa fa-plus-circle"></span></h3>
 			<div class="hide">
 					<label class="label">
-					Have similar projects been implemented on other campuses? Have they been successful?
-					How does this project differ? 
+					Project schedule and budget are reasonable and conform to established timelines, constraints and parameters?
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="appropriateness" rows="8" class="textArea textAreaCheck" placeholder="Enter summary" maxlength="600"></textarea> 
 			</div>
 
 			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  5. Accountability <span class="retractIcon fa fa-plus-circle"></span></h3>
@@ -79,54 +76,67 @@
 					<label class="label">
 					How will you measure and evaluate your project’s progress and success?  
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="accountability" rows="8" class="textArea textAreaCheck" placeholder="Enter summary" maxlength="600"></textarea> 
 			</div>
 
-			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  6. Cost Savings <span class="retractIcon fa fa-plus-circle"></span></h3>
+			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  6. Innovation <span class="retractIcon fa fa-plus-circle"></span></h3>
 			<div class="hide">
 					<label class="label">
-					Will the project result in expected cost savings? If yes, what is the payback period?
+					Project is innovative in nature and does not include routine maintenance or code-compliant activities. Funding may support narrowing the gap between code-compliant and more sustainable alternatives.
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="inovation" rows="8" class="textArea textAreaCheck" placeholder="Enter summary" maxlength="600"></textarea> 
 			</div>
 
-			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  7. Project Self Sufficiency <span class="retractIcon fa fa-plus-circle"></span></h3>
+			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  7. Environmental Benefits <span class="retractIcon fa fa-plus-circle"></span></h3>
 			<div class="hide">
 					<label class="label">
-					What is the total project budget? What is your plan for sustained funding? 
-					Is this project receiving funding from other sources? If so, please explain.
+					Project demonstrates a reduction in WSU's carbon footprint or provides other environmental benefits such as water conservation, storm water management, biodiversity conservation, and waste minimization.
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="environmentalBenefits" rows="8" class="textArea textAreaCheck" placeholder="Enter summary" maxlength="600"></textarea> 
 			</div>
 
-			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  8. Project Lifespan <span class="retractIcon fa fa-plus-circle"></span></h3>
+			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  8. Regional Connection <span class="retractIcon fa fa-plus-circle"></span></h3>
 			<div class="hide">
 					<label class="label">
-					What is the expected lifespan of the project? 
-					Who will be responsible for overseeing it during that time?
+					Project provides intellectual and emotional linkage with the unique landscape of the Driftless Area/ Mississippi River, as well as the cultural lifeways of this special place.
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="regionalConnection" rows="8" class="textArea textAreaCheck" placeholder="Enter summary" maxlength="600"></textarea> 
 			</div>
 
-			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  9. Sustainability/Accountability <span class="retractIcon fa fa-plus-circle"></span></h3>
+			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  9. Outreach and Education <span class="retractIcon fa fa-plus-circle"></span></h3>
 			<div class="hide">
 					<label class="label">
-					How will you ensure the sustained existence/maintenance of this project (including reporting requirements) 
-					once you are no longer involved? If the project will conclude while you are involved, what will happen to the 
-					materials purchased for the project and how will you return the project site to its original condition? 
+					Project considers interdisciplinary and experiential education and outreach opportunities and has included them as part of its implementation plan. 
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="outreachAndEducation" rows="8" class="textArea textAreaCheck" placeholder="Enter summary" maxlength="600"></textarea> 
 			</div>
 
-			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  10. Potential <span class="retractIcon fa fa-plus-circle"></span></h3>
+			<h3 class="questionTitle"><span class="completed fa fa-check"></span>  10. Self Sufficiency <span class="retractIcon fa fa-plus-circle"></span></h3>
 			<div class="hide">
 					<label class="label">
-					How can your project be scaled for broader campus application beyond the initial phase? 
+					Project includes matching funds from sources beyond SGF or includes a plan for sustained funding.
 					</label>
-				<textarea name="input_endorsement" rows="8" class="textArea" placeholder="Enter summary"></textarea> 
+				<textarea name="selfSufficiency" rows="8" class="textArea textAreaCheck" placeholder="Enter summary" maxlength="600"></textarea> 
+			</div>
+
+			<h3 class="questionTitle"><span class="completed fa fa-check"></span> 11. Potential for Broad Application <span class="retractIcon fa fa-plus-circle"></span></h3>
+			<div class="hide">
+					<label class="label">
+					Project has potential to be scalable across the campus.
+					</label>
+				<textarea name="potential" rows="8" class="textArea textAreaCheck" placeholder="Enter summary" maxlength="600"></textarea> 
+			</div>
+
+			<h3 class="questionTitle"><span class="completed fa fa-check"></span> 12. Cost/Benefit Analysis <span class="retractIcon fa fa-plus-circle"></span></h3>
+			<div class="hide">
+					<label class="label">
+					Project proposal outlines project payback, lifecycle costs and savings, etc. (As appropiate)
+					</label>
+				<textarea name="costBenefit" rows="8" class="textArea textAreaCheck" placeholder="Enter summary" maxlength="600"></textarea> 
 			</div>
 		</div>
-		<p class="errorMessage hide"> Please make sure you are entering valid information.</p>
+
+			<p class="errorMessage hide"> Please make sure you are entering valid information.</p>
 			<div class="buttonBox">
 				<button id="proposalButtonBack" class="Button backButton">Back</button>
 				<button id="proposalButtonNext" class="Button">Next</button>
@@ -135,7 +145,7 @@
 	
 <!-- 3rd Section of the Main Form (Budget Details) -->
 	
-<div id="budgetForm" class="form animated zoomIn">
+<!-- <div id="budgetForm" class="form animated zoomIn">
 
 <h1 class="formTitle"> Budget Details </h1>
 <hr class="titleHR">
@@ -205,12 +215,28 @@
 	<button id="budgetButtonBack" class="Button backButton">Back</button>
 	<button id="finishButton" class="Button">Finish!</button>
 </div>
-</div>
+</div> -->
 
 <!-- <div id="sucessForm" class="form">
 	<h1 class="formTitle"> Budget Details </h1>
 </div> -->
-	
+
+	<!--SUCESS PART  -->
+	<div id="sucess">
+		<h1 id="sucessTitle">Sucess!</h1>
+
+			<div id="sucessAnim">
+
+			</div>
+
+		<p>Thank you for making WSU Greener</p>
+
+		<div class="buttonBox">
+			<button id="backToStartButton" class="Button">Home</button>
+		</div>
+
+	</div>
+
 </body>
 
 <?php include "footer.php"; ?>

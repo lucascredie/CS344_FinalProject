@@ -25,16 +25,18 @@
     let contactEmail;
     let contactAfilliation;
 //proposalForm
-    let proposalSummary;
-    let inputEndorsment;
-    let anticipatedOutcome;
-    let projectBenchmarking;
+    let studentExperience;
+    let connectionToCampus;
+    let feasibilityAndSupport;
+    let appropriateness;
     let accountability;
-    let costSavings;
+    let inovation;
+    let environmentalBenefits;
+    let regionalConnection;
+    let outreachAndEducation;
     let selfSufficiency;
-    let projectLifespan;
-    let sustainability;
-    let projectPotential;
+    let potential;
+    let costBenefit;
 //budgetForm
     let resourceBudget;
     let resourceExplanation;
@@ -49,11 +51,19 @@
     let otherBudget;
     let otherExplanation;
 
+    var progressNumber = 0;
 // =============================================================================
 //                              APPLICATION
 // =============================================================================
 $( document ).ready(function() {
     console.log( "ready!" );
+
+    
+
+    $("#progress").delay( 500 ).slideDown("slow");
+
+    
+
     //EVENTS
     /*  check for a change in input and display section 
         of project alone or in a group if user is a student */
@@ -67,16 +77,19 @@ $( document ).ready(function() {
             $("#studentBox").slideUp("fast"); //otherwise we hide group name option
         } 
     }); 
-	
+
     /*  check for status submit button clicked and move to next form */
     $("#statusButtonSubmit").on("click",function(){
-        let statusInput = $("input:radio[name=status]:checked").val(); //status of submitter
+
+        progressNumber++;    
+        console.log("status number: " + progressNumber);
+        let statusInput = $("input:radio[name=status]:checked").val();
         status = statusInput;
 
             if(statusInput == "student") {
                 let groupInput = $("input:radio[name=group]:checked").val();
                 group = groupInput;
-				
+            
                 //hides group name of next form if the person is not working on group
                 //this also sets value of group name if student is not ina group to Group Name
                 //we set that value so validator doesnt break and to give a default value of null
@@ -96,21 +109,15 @@ $( document ).ready(function() {
         }
 
         // console.log(status);
-        // console.log(group);         
+        // console.log(group); 
+        
+           
+        
     });
-
-	$("#statusButtonSubmit").on("click",function(){
-		var val = 20 + '%';
-        $('#progress-bar').width(val).text(val);
-		document.getElementByClass("progress-bar").style.width= 20 + '%';
-	});
-
 
     //STUDENT FORM
     // from student information TO contact
     $("#studentButtonNext").on("click", function(){
-		
-		
         clearErrors()
        let response = getInputValues("studentForm");
        
@@ -124,21 +131,24 @@ $( document ).ready(function() {
            advisorPhone = response[0][4];
 
            move($("#studentForm"), $("#contactForm"));
+
+           
        } 
+
     })
 
         //from student information BACK to status
         $("#studentButtonBack").on("click", function(){
-			
             clearErrors()
+
             move($("#studentForm"), $("#statusForm"));
+
+           
         })
 
        
     //from contact to proposal
     $("#contactButtonNext").on("click", function(){
-		
-		
         clearErrors()
         let response = getInputValues("contactForm");
     
@@ -150,6 +160,9 @@ $( document ).ready(function() {
             contactAfilliation = response[0][3];
 
             move($("#contactForm"), $("#proposalForm"));
+
+            progressNumber++;       
+            
         } 
 
     })
@@ -164,9 +177,10 @@ $( document ).ready(function() {
             //otherwise back to status form
             move($("#contactForm"), $("#statusForm"));
         }
+
+        progressNumber--;       
+        
     })
-	
-	
         
     //from proposal to budget
     $("#proposalButtonNext").on("click", function(){
@@ -175,18 +189,23 @@ $( document ).ready(function() {
 
         if(response[0].length == response[1]) {
 
-            proposalSummary = response[0][0];
-            inputEndorsment = response[0][1];
-            anticipatedOutcome = response[0][2];
-            projectBenchmarking = response[0][3];
+            studentExperience = response[0][0];
+            connectionToCampus = response[0][1];
+            feasibilityAndSupport = response[0][2];
+            appropriateness = response[0][3];
             accountability = response[0][4];
-            costSavings = response[0][5];
-            selfSufficiency = response[0][6];
-            projectLifespan = response[0][7];
-            sustainability = response[0][8];
-            projectPotential = response[0][9];
+            inovation = response[0][5];
+            environmentalBenefits = response[0][6];
+            regionalConnection = response[0][7];
+            outreachAndEducation = response[0][8];
+            selfSufficiency = response[0][9];
+            potential = response[0][10];
+            costBenefit = response[0][11];
 
         move($("#proposalForm"), $("#budgetForm"));
+
+        progressNumber++;       
+       
         }
             
     })
@@ -194,11 +213,13 @@ $( document ).ready(function() {
     $("#proposalButtonBack").on("click", function(){
         clearErrors()
         move($("#proposalForm"), $("#contactForm"));
-            
+
+        progressNumber--;       
+        
     })
 
     // =========================================================================
-    // FINAL SUBMIT - AJAX 
+    // FINAL SUBMIT  - AJAX INSIDE
     // =========================================================================
     
     //budget form next buttton
@@ -231,41 +252,12 @@ $( document ).ready(function() {
             $("#budgetForm").addClass("animated zoomOut");
             $("#budgetForm").show();
 
-			
+            progressNumber++;       
+            
 
-//proposalForm
-    let proposalSummary;
-    let inputEndorsment;
-    let anticipatedOutcome;
-    let projectBenchmarking;
-    let accountability;
-    let costSavings;
-    let selfSufficiency;
-    let projectLifespan;
-    let sustainability;
-    let projectPotential;
-//budgetForm
-    let resourceBudget;
-    let resourceExplanation;
-    let suppliesBudget;
-    let suppliesExplanation;
-    let studentSupportBudget;
-    let studentSupportExplanation;
-    let staffSupportBudget;
-    let staffSupportExplanation;
-    let communitySupportBudget;
-    let communitySupportExplanation;
-    let otherBudget;
-    let otherExplanation;
             //AJAX REQUEST GOES RIGHT HERE!!
-			statusInput //user status
-			$.ajax({
-				type: "POST",
-				url: "passTo.php",
-				data: {u_name: contactName, campus_affiliation: contactAfilliation, email: contactEmail, Status: status, a_name: advisorName, a_email: advisorEmail, dept: advisorDepartment, phone: advisorPhone,
-						group_name: groupName, title: projectTitle, amount: totalBudget, '002': , '003': , '004': , '005': , '006': , '007': , '008': , '009': , '010': , '011': , '012': }
-			}).done(function( msg ) {
-				alert( "Data Saved!");
+            //IF SUCCESS DISPLAY SUCCESS
+            
         }
        
 
@@ -274,6 +266,8 @@ $( document ).ready(function() {
         $("#budgetButtonBack").on("click", function(){
             clearErrors()
             move($("#budgetForm"),$("#proposalForm"));
+            progressNumber--;       
+           
             
         })
 
@@ -326,11 +320,29 @@ $( document ).ready(function() {
         $(this).removeClass("invalidInput animated shake");
         
     });
+
+    function updateProgressBar() {
+        console.log(progressNumber);
+        let percentage = progressNumber * 25;
+        
+        $("#percent").text("Progress " + percentage + "%");
+
+        $("#bar").width(percentage + "%");
+    }
+
+    $(".Button").on("click", function(){
+        
+            updateProgressBar();
+    
+        });
+
 }); // END OF READY STATEMENT
 
     // =========================================================================
     //                          FUNCTIONS
     // =========================================================================
+
+    
 
     function move(currentForm, nextForm) {
         //hides current form and show next.
@@ -537,4 +549,3 @@ function isTextArea(text) {
     let filteredText = validator.blacklist(text, [' ', '.',';','(',')','?','!','-','/','    ','\n']);
     return validator.isAlphanumeric(filteredText);
 }
-
