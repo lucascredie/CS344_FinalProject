@@ -339,6 +339,21 @@
 		</div>
 </div>
 
+<div id="sucess" class="hide">
+		<h1 id="sucessTitle" class="animated fadeIn">Thank you for making WSU Greener!</h1>
+
+			<div id="sucessAnim">
+				<?php include "plant.php" ?>
+			</div>
+
+		<p class="animated bounceIn">We appreciate the time you spent on your idea. We'll get back to you soon!</p>
+
+		<div class="buttonBox">
+			<a href="index.php" id="backToStartButton" class="Button">Home</a>
+		</div>
+
+	</div>
+
 
 
 </body>

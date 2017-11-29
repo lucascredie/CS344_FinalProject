@@ -222,17 +222,17 @@
 </div> -->
 
 	<!--SUCESS PART  -->
-	<div id="sucess">
-		<h1 id="sucessTitle">Sucess!</h1>
+	<div id="sucess" >
+		<h1 id="sucessTitle" class="animated fadeIn">Thank you for making WSU Greener!</h1>
 
 			<div id="sucessAnim">
-
+				<?php include "plant.php" ?>
 			</div>
 
-		<p>Thank you for making WSU Greener</p>
+		<p class="animated bounceIn">We appreciate the time you spent to submit your idea. We'll get back to you soon!</p>
 
 		<div class="buttonBox">
-			<button id="backToStartButton" class="Button">Home</button>
+			<a href="index.php" id="backToStartButton" class="Button">Home</a>
 		</div>
 
 	</div>

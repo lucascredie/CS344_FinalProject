@@ -250,9 +250,15 @@ $( document ).ready(function() {
 
             $("#budgetForm").hide();
             $("#budgetForm").addClass("animated zoomOut");
-            $("#budgetForm").show();
+            progressNumber++;  
 
-            progressNumber++;       
+            setInterval(function(){ 
+                $("#budgetForm").hide();
+                $("#sucess").show();
+            }, 2000);
+            // $("#budgetForm").show();
+
+                 
             
 
             //AJAX REQUEST GOES RIGHT HERE!!

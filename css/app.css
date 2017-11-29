@@ -3,6 +3,7 @@ Winona
 Hex #4B08A1
 R: 75, G: 8, B: 161 
 */
+
 @import url('https://fonts.googleapis.com/css?family=Unica+One|Lato:300,400,700');
 
 :root {
@@ -328,9 +329,10 @@ p {
 
 /* Success page */
 #sucess {
+    color: var(--main_green);
     text-align: center;
     height: 250px;
-    background: red;
+    /* background: red; */
     width: 350px;
     margin: 40px auto;
 }
