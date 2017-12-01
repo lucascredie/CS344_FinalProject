@@ -142,7 +142,7 @@ $( document ).ready(function() {
             clearErrors()
 
             move($("#studentForm"), $("#statusForm"));
-
+            progressNumber--; 
            
         })
 
