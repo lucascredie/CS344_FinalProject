@@ -45,11 +45,9 @@
 
     <p>When you are ready to fill out your application, 
         please answer the questions in this form. You should submit additional 
-        documentation (e.g., letters of support, maps, drawings, budget, etc.) 
+        documentation (e.g., letters of support, maps, drawings, etc.) 
         via email to NEngstrom@winona.edu.
     </p>
-
-    <h5 id="note">You may save and continue working on the application at a later date, for up to ONE MONTH.</h5>
     
     <div class="buttonBox">
         <a class="Button" href="form.php">Start</a>
