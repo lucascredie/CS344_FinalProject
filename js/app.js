@@ -251,15 +251,30 @@ $( document ).ready(function() {
             $("#budgetForm").hide();
             $("#budgetForm").addClass("animated zoomOut");
             progressNumber++;  
-
+			/*
             setInterval(function(){ 
                 $("#budgetForm").hide();
                 $("#sucess").show();
             }, 2000);
             // $("#budgetForm").show();
-
+			*/
                  
-            
+            $.ajax({
+				type:"POST",
+				cache:false,
+				url:"passTo.php",
+				data : {a_name : advisorName, email : advisorEmail, dept : advisorDepartment, phone : advisorPhone,
+						advisor_name : advisorName, group_name : groupName, title : projectTitle, amount : totalBudget, contact_name : contactName, Fgroup : group,
+						Q1 : studentExperience, Q2 : connectionToCampus, Q3 : feasibilityAndSupport, Q4 : appropriateness, Q5 : accountability, Q6 : inovation, Q7 : environmentalBenefits,
+						Q8 : regionalConnection, Q9 : outreachAndEducation, Q10 : selfSufficiency, Q11 : potential, Q12 : costBenefit,
+						u_name : contactName, campus_affiliation : contactAfilliation, Uemail : contactEmail},
+				success: function (html) {
+					setInterval(function(){ 
+						$("#budgetForm").hide();
+						$("#sucess").show();
+					}, 2000);
+				}
+			});
 
             //AJAX REQUEST GOES RIGHT HERE!!
             //IF SUCCESS DISPLAY SUCCESS
